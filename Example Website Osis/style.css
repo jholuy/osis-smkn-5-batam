@@ -1,0 +1,1421 @@
+/*Root*/
+    :root {
+        --font-size-xxl: 2rem; /* Ukuran font ekstra besar */
+        --font-size-xl: 1.5rem; /* Ukuran font besar */
+        --font-size-l: 1.25rem; /* Ukuran font sedang */
+        --font-size-m: 1rem; /* Ukuran font normal */
+        --font-size-s: 0.875rem; /* Ukuran font kecil */
+        
+        --padding-xxl: 3rem; /* Padding ekstra besar */
+        --padding-xl: 2rem; /* Padding besar */
+        --padding-l: 1.5rem; /* Padding sedang */
+        --padding-m: 1rem; /* Padding normal */
+        --padding-s: 0.5rem; /* Padding kecil */
+        
+        --margin-xxl: 3rem; /* Margin ekstra besar */
+        --margin-xl: 2rem; /* Margin besar */
+        --margin-l: 1.5rem; /* Margin sedang */
+        --margin-m: 1rem; /* Margin normal */
+        --margin-s: 0.5rem; /* Margin kecil */
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+    }
+
+    /* Styling untuk informasi OSIS */
+    #osis-info {
+        background-color: #f1f1f1; /* Background warna abu-abu terang */
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        z-index: 1; /* Menjaga informasi OSIS tetap di depan navbar */
+    }
+
+    /* Container untuk info */
+    .info-content {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Pengaturan untuk kiri, tengah, dan kanan */
+    .left-info, .right-info {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    /* Center Info (Sosial Media) */
+    .center-info {
+        display: flex;
+        justify-content: center; /* Memastikan elemen sosial media terpusat */
+        align-items: center;
+        gap: 20px; /* Menambah jarak antar ikon */
+    }
+
+    /* Margin kiri-kanan agar lebih ke tepi */
+    .left-info {
+        margin-left: -40px;
+    }
+
+    .left-info a {
+        text-decoration: none;
+        color: #000000;
+    }
+
+    .right-info {
+        margin-right: -40px;
+    }
+
+    /* Mengatur ukuran ikon dan warna */
+    .left-info i, .center-info i, .right-info i {
+        font-size: 24px;
+        color: #009688; /* Warna default hijau */
+    }
+
+    /* Styling untuk link sosial media (hanya ikon) */
+    .center-info a {
+        text-decoration: none;
+        color: #009688; /* Warna hijau seperti logo */
+        font-size: 28px; /* Ukuran ikon lebih besar */
+        margin: 0 10px;
+        transition: color 0.3s, transform 0.3s ease; /* Animasi saat hover */
+    }
+
+    /* Hover efek untuk ikon sosial media */
+    .center-info i:hover {
+        color: #00e1ff; /* Warna saat hover menjadi biru terang */
+        transform: scale(1.7); /* Efek membesar saat hover */
+    }
+
+    /* Hover efek untuk teks dan ikon telepon */
+    .left-info a:hover {
+        color: #811e00; /* Ubah warna saat hover menjadi oranye */
+    }
+
+    .right-info p:hover {
+        color: #811e00; /* Ubah warna teks alamat saat hover menjadi oranye */
+    }
+
+    .left-info i, .right-info i {
+        color: #811e00; /* Ubah warna ikon telepon dan alamat menjadi oranye saat hover */
+    }
+
+    /* Navbar */
+    .navbar {
+        position: absolute;
+        top: 68.5px; /* Navbar mulai di bawah informasi OSIS */
+        left: 0;
+        width: 100%;
+        z-index: 100;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background: transparent;
+        background-image: inherit;
+        backdrop-filter: blur(1.3px);
+        transition: top 0.3s ease; /* Animasi perubahan posisi */
+    }
+
+    /* Ketika navbar sticky */
+    .navbar.sticky {
+        position: fixed;
+        top: 0; /* Navbar pindah ke posisi atas */
+        background: rgba(95, 43, 1, 0.5); /* Background lebih gelap setelah scroll */
+        backdrop-filter: blur(4px);
+        opacity: 1; /* Navbar menjadi terlihat setelah sticky */
+        transform: translateY(-100%); /* Mengatur navbar berada di luar layar */
+        animation: slideDown 0.5s forwards; /* Animasi slide-in */
+    }
+
+    /* Tombol Open (☰) */
+    .menu-icon {
+        display: none;
+        font-size: 28px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: white;
+        position: absolute;
+        right: 20px;
+    }
+
+    /* Tombol Close (❌) */
+    .close-icon {
+        display: none;
+        font-size: 28px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: white;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+    }
+
+    .navbar .logo img {
+        height: 50px;
+        max-width: 100%;
+        width: auto;
+    }
+
+    .nav-menu {
+        display: flex;
+        list-style: none;
+    }
+
+    .nav-menu li {
+        margin-left: 40px; 
+    }
+
+    .nav-menu a {
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        font-size: 22px; /* Memperbesar ukuran font pada navbar */
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+    .nav-menu a:hover {
+        color: #00e1ff;
+        background-color: #00bcd4;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    /* Home Section */
+    .home-section {
+        background-image: url('Foto\ section/background.jpeg'); 
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+
+    img {
+        max-width: 100%; 
+        height: auto; 
+    }
+
+    /* Container untuk logo */
+    .home-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%; 
+    }
+
+    .logo-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo-osis {
+        width: 150px;
+        height: auto;
+        border-radius: 10px;
+        margin-right: 20px;
+    }
+
+    .logo-smk5 {
+        width: 150px;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    /* About Section */
+    .about-section {
+        padding: var(--padding-xl) var(--padding-m);
+        background-color: #f4f4f4;
+        color: #333;
+    }
+
+    .about-section a {
+        text-decoration: none;
+        color: #000000;
+        font-weight: bold;
+    }
+
+    .about-content h2 {
+        font-size: 36px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    /* Layout utama (gambar kiri, teks kanan) */
+    .about-container {
+        display: flex;
+        flex-direction: row;  /* Pastikan gambar tetap di kiri, teks di kanan */
+        align-items: center;
+        justify-content: space-between;
+        gap: 60px; /* Tambahkan lebih banyak ruang antara gambar dan teks */
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    /* Bagian teks */
+    .about-text {
+        flex: 1;
+        font-size: 18px;
+        text-align: justify;
+        line-height: 1.6;
+    }
+
+    /* Bagian gambar */
+    .about-image-container {
+        position: relative;
+        width: 50%; /* Kurangi lebar supaya tidak terlalu besar */
+        display: flex;
+        justify-content: flex-end; /* Memastikan gambar lebih ke kiri */
+        padding-right: 40px; /* Memberikan ruang ekstra agar tidak terlalu dekat dengan teks */
+    }
+
+    .about-image {
+        width: 100%; /* Pastikan gambar tetap dalam kontainer */
+        max-width: 1000px; /* Atur ukuran maksimum agar tidak terlalu besar */
+        border-radius: 10px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .image-border {
+        position: absolute;
+        top: 50px;   /* Naikkan sedikit agar lebih seimbang */
+        left: -25px; /* Geser ke kiri agar tetap modern */
+        width: 90%;  /* Buat border lebih kecil dari gambar */
+        height: 90%; /* Kurangi tinggi agar tidak terlalu dominan */
+        border: 4px solid #009688; /* Perkecil ketebalan border */
+        z-index: 1;
+    }
+
+    /* Visi dan Misi */
+    .vision-mission {
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+        margin-top: 60px;
+    }
+
+    .vision, .mission {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 45%;
+    }
+
+    .vision h3, .mission h3 {
+        font-size: 24px;
+        font-weight: bold;
+        color: #009688;
+        margin-bottom: 10px;
+    }
+
+    .vision p, .mission ul {
+        font-size: 16px;
+        color: #555;
+    }
+
+    .mission ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .mission ul li {
+        margin: 10px 0;
+    }
+
+    /* Structure Section */
+    .structure-section {
+        padding: var(--padding-xl) var(--padding-m);
+        background-color: #f9f9f9;
+        color: #333;
+        text-align: center;
+    }
+
+    .structure-section h2 {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 40px; /* Memberi jarak yang cukup antara judul dan konten */
+    }
+
+    .structure-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Styling untuk Pembina, Ketua, Wakil, Sekretaris, Bendahara */
+    .card.pembina, .second-tier, .third-tier {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 40px; /* Memberikan jarak antar tingkatan */
+        position: relative;
+    }
+
+    /* Garis Pemisah Estetis menggunakan Box-Shadow */
+    .card.pembina::after, .second-tier::after, .third-tier::after {
+        content: "";
+        position: absolute;
+        bottom: -15px; /* Posisi garis sedikit lebih jauh dari card */
+        left: 0;
+        width: 100%;
+        height: 2px; /* Ketebalan garis */
+        background: linear-gradient(to right, rgba(0, 150, 136, 0.7), rgba(0, 150, 136, 0)); /* Garis gradasi */
+    }
+
+    /* Tingkat 2: Ketua, Wakil Ketua, Sekretaris, Bendahara */
+    .second-tier {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 20px; /* Jarak antar card */
+        margin-bottom: 40px; /* Memberikan jarak bawah */
+    }
+
+    .third-tier {
+        display: flex;
+        flex-direction: column;
+        gap: 30px; /* Jarak antar baris menteri */
+    }
+
+    /* Baris untuk Menteri-menteri */
+    .row {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 20px; /* Jarak antar card */
+    }
+
+    /* Card Design */
+    .card {
+        background-color: #fff;
+        padding: 20px;
+        width: 200px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+    .card-img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 20px;
+    }
+
+    .card h3 {
+        font-size: 20px;
+        font-weight: bold;
+        color: #009688;
+        margin-bottom: 10px;
+    }
+
+    .card p {
+        font-size: 16px;
+        color: #555;
+    }
+
+    /* Styling for Menteri Links */
+    .card a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .card a:hover {
+        text-decoration: none;
+        color: #00bcd4;
+    }
+
+    /* Gallery Title */
+    .gallery-section h2 {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 40px;
+    }
+
+    .gallery-section {
+        padding: var(--padding-xl) var(--padding-m);
+    }
+
+    /* Image Slider */
+    .slider-container {
+        position: relative;
+        max-width: 100%;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    .slider {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+
+    .slider-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    button {
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+        border-radius: 50%;
+        font-size: 20px;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+
+    /* Tabel Information */
+    .table-info {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+    }
+
+    .table-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+    }
+
+    /* Gallery Section */
+    .gallery-section {
+        padding: var(--padding-xl) var(--padding-m);
+        background-color: #f9f9f9;
+        color: #333;
+        text-align: center;
+    }
+
+    /* Gallery Title */
+    .gallery-section h2 {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 40px;
+    }
+
+    /* Tabel Information - Satu Border untuk Dua Tabel */
+    .table-info {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+        width: 100%;
+        padding: 10vh;
+    }
+
+    /* Pusatkan container */
+    .number-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 4vh;
+    }
+
+    /* Kotak besar yang membungkus Angkatan, Selanjutnya, dan Purna */
+    .number-box {
+        border: 3px solid #009688; /* Border hijau di luar */
+        border-radius: 15px;
+        padding: 20px;
+        background-color: #f5f5f5;
+        width: 400px;
+        text-align: center;
+    }
+
+    /* Row utama (membagi ke 3 bagian) */
+    .table-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    /* Kolom kiri, tengah, kanan */
+    .column {
+        width: 33%;
+        padding: 15px;
+    }
+
+    /* Garis pemisah di antara kolom */
+    .column:not(:last-child) {
+        border-right: 2px solid #009688;
+    }
+
+    /* Styling angka besar */
+    .large-number {
+        font-size: 40px;
+        font-weight: bold;
+        color: #009688;
+        transition: transform 0.3s ease;
+    }
+
+    /* Efek hover untuk memperbesar angka pada Purna */
+    .clickable:hover .large-number {
+        transform: scale(1.3);
+    }
+
+    /* Styling teks kecil */
+    .small-text {
+        font-size: 14px;
+        color: #757575;
+        margin-top: 5px;
+    }
+
+    /* Cursor pointer untuk Purna */
+    .clickable {
+        cursor: pointer;
+    }
+
+    /* Hapus efek background hijau saat hover */
+    .clickable:hover {
+        background-color: transparent;
+    }
+
+
+    /* Animasi untuk angka */
+    @keyframes scrollNumber {
+        0% {
+            bottom: -100%; /* Dimulai di bawah */
+        }
+        100% {
+            bottom: 0; /* Sampai di posisi normal */
+        }
+    }
+
+    /* Styling untuk link dan hover pada angka */
+    .table-item a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .table-item a:hover {
+        color: #00bcd4;
+    }
+
+    /*event*/
+    .event-bg {
+        padding: var(--padding-xl) var(--padding-m); /* Menggunakan variabel untuk padding */
+    }
+
+    /* Container besar dengan border */
+    .event-wrapper {
+        border: 3px solid #333; /* Border besar di sekitar seluruh section */
+        border-radius: 15px;
+        background-color: #fff;
+        padding: 9vh;
+        margin: 20px auto;
+        max-width: 1100px;
+        width: 100%;
+    }
+
+    /* Styling untuk Heading */
+    .heading-event h3 {
+        text-align: center; /* Menjaga heading agar terpusat */
+        font-size: 2em; /* Membuat heading lebih besar */
+        font-weight: bold;
+        color: #333;
+        margin-top: 20px;
+    }
+
+    /* Container utama untuk semua event */
+    .event-container {
+        display: flex; /* Membuat container utama menggunakan flex */
+        flex-direction: row; /* Menyusun status secara horizontal */
+        justify-content: space-between; /* Membuat jarak antar status */
+        gap: 20px;
+        padding: 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    /* Container untuk setiap status (Coming Soon, Ongoing, Finished) */
+    .event-status-container {
+        padding: 10px;
+        align-items: center;
+        display: flex;
+        flex-direction: column; /* Membuat event dalam satu status disusun vertikal */
+        gap: 10px;
+        flex-grow: 1; /* Agar tiap status memanfaatkan ruang yang tersedia */
+        background-color: #fff; /* Memberikan latar belakang putih agar beda dari background utama */
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Subheading dari setiap status */
+    .event-status-container h2 {
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        font-size: 1.5em;
+        color: #333;
+    }
+
+    /* Styling untuk event */
+    .event {
+        border: 2px solid #ccc;   /* Border kecil untuk setiap event */
+        border-radius: 8px;
+        background-color: white;
+        padding: 10px;
+        margin: 5px;
+        width: 220px;              /* Lebar tetap untuk setiap event */
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);  /* Border sedikit lebih halus */
+        justify-content: center;   /* Menjaga konten event di tengah */
+    }
+
+    /* Styling untuk nama event */
+    .event-name {
+        font-size: 1.1em;
+        color: #333;
+        margin-bottom: 5px;
+        text-align: center;       /* Memusatkan nama event */
+    }
+
+    /* Styling untuk tanggal event */
+    .event-date {
+        font-size: 1em;
+        color: #666;
+        margin-bottom: 10px;
+        text-align: center;       /* Memusatkan tanggal event */
+    }
+
+    /* Styling untuk status event */
+    .event-status {
+        margin-top: 10px;
+        padding: 5px;
+        font-size: 1.1em;
+        font-weight: bold;
+        color: white;
+        border-radius: 5px;
+        text-align: center;       /* Memusatkan status event */
+    }
+
+    /* Warna status */
+    .coming-soon {
+        background-color: #ff6f61;
+    }
+
+    .ongoing {
+        background-color: #4caf50;
+    }
+
+    .finished {
+        background-color: #9e9e9e;
+    }
+
+    /* Sugestion Section*/
+    .bgcolor {
+        background-color: #f8f8f8;
+        width: 100%;
+        padding: 4vh;
+    }
+
+    .container-sugestion {
+        width: 90%;
+        max-width: 600px;
+        margin: var(--margin-xl) auto;  /* Memberikan jarak atas dan bawah */
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .container-sugestion h3 {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    label {
+        font-size: 14px;
+        font-weight: 600;
+        color: #555;
+    }
+
+    input[type="email"],
+    input[type="phone"],
+    input[type="text"],
+    textarea {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        outline: none;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    input[type="email"]:focus,
+    input[type="phone"]:focus,
+    input[type="text"]:focus,
+    textarea:focus {
+        border-color: #4CAF50;
+    }
+
+    textarea {
+        height: 150px;
+        resize: none;
+    }
+
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    input[type="submit"]:active {
+        background-color: #388e3c;
+    }
+
+    input[type="submit"]:disabled {
+        background-color: #b0bec5;
+        cursor: not-allowed;
+    }
+
+    /* Styling Footer */
+    footer {
+        background: #000000; /* Warna hijau futuristik */
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .bottom-bg {
+        background-color: wheat;
+        width: 100%;
+        bottom: 0;
+        color: #000000;
+        text-align: center;
+        position: relative;
+    }
+
+    /* Container Footer */
+    .footer-container {
+        max-width: 800px;
+        margin: auto;
+        padding: var(--padding-m) 0;
+    }
+
+    /* Informasi Sekolah */
+    .footer-info h2 {
+        font-size: 22px;
+        margin-bottom: 5px;
+    }
+
+    .footer-info p {
+        font-size: 14px;
+        opacity: 0.8;
+    }
+
+    /* Sosial Media */
+    .footer-social {
+        margin: 15px 0;
+    }
+
+    /* Ikon Sosial Media */
+    .footer-social a {
+        display: inline-block;
+        margin: 0 15px;
+        font-size: 28px;
+        color: white;
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    /* Hover efek pada ikon sosial media */
+    .footer-social a:hover {
+        transform: scale(1.2);
+        color: #004d40; /* Warna lebih gelap saat hover */
+    }
+
+    /* Hak Cipta */
+    .footer-bottom p {
+        font-size: 12px;
+        opacity: 0.7;
+    }
+
+    /* Animasi navbar dari atas */
+    @keyframes slideDown {
+        0% {
+            transform: translateY(-500%); /* Navbar berada di luar layar */
+        }
+        100% {
+            transform: translateY(0); /* Navbar berada pada posisi normal */
+        }
+    }
+
+    @media (min-width: 769px) {
+        .text-osis {
+            display: none;
+        }
+    }
+
+@media (max-width: 768px) {
+    :root {
+        --font-size-xxl: 1.8rem; /* Ukuran font ekstra besar untuk mobile */
+        --font-size-xl: 1.25rem; /* Ukuran font besar untuk mobile */
+        --font-size-l: 1rem; /* Ukuran font sedang untuk mobile */
+        --font-size-m: 0.875rem; /* Ukuran font normal untuk mobile */
+        --font-size-s: 0.75rem; /* Ukuran font kecil untuk mobile */
+        
+        --padding-xxl: 2rem; /* Padding ekstra besar untuk mobile */
+        --padding-xl: 1.5rem; /* Padding besar untuk mobile */
+        --padding-l: 1rem; /* Padding sedang untuk mobile */
+        --padding-m: 0.75rem; /* Padding normal untuk mobile */
+        --padding-s: 0.5rem; /* Padding kecil untuk mobile */
+        
+        --margin-xxl: 2rem; /* Margin ekstra besar untuk mobile */
+        --margin-xl: 1.5rem; /* Margin besar untuk mobile */
+        --margin-l: 1rem; /* Margin sedang untuk mobile */
+        --margin-m: 0.75rem; /* Margin normal untuk mobile */
+        --margin-s: 0.5rem; /* Margin kecil untuk mobile */
+    }
+
+    *{
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-size: var(--font-size-m); /* Ukuran font lebih kecil */
+    }
+
+    /*Information*/
+    .osis-info .info-content {
+        display: flex;
+        align-items: center;  /* Supaya elemen tetap sejajar */
+        justify-content: space-between;  /* Pisahkan kiri dan kanan */
+        width: 100%;
+    }
+    
+    .left-info, .right-info {
+        display: none; /* Sembunyikan elemen */
+    }
+    
+    .text-osis {
+        font-size: var(--font-size-l);
+        font-weight: bold;
+    }
+    
+    .center-info {
+        display: flex;
+        gap: 1rem; /* Jarak antar ikon */
+    }
+    
+    .center-info a {
+        font-size: var(--font-size-s); /* Sesuaikan ukuran ikon */
+        color: black; /* Sesuaikan warna */
+        text-decoration: none;
+    }
+
+    /*Navbar*/
+    .navbar .logo img {
+        display: none;
+    }
+    
+    .navbar {
+        padding: var(--padding-s) var(--padding-l); /* Padding lebih kecil */
+    }
+
+    body.show-mobile-menu header::before {
+        content: "";
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        backdrop-filter: blur(5px);
+        background: (0, 0, 0, 0.2);
+        z-index: 3;
+    }
+
+    /* Navbar style */
+    #mobile-navbar {
+        position: fixed;
+        top: 0;
+        left: -100%; /* Awalnya navbar berada di luar layar */
+        width: 50%;
+        height: 100%;
+        background-color: #ffffff;
+        transition: left 0.3s ease-in-out;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column; /* Vertikal */
+        align-items: flex-start;
+        padding: var(--padding-l) var(--padding-s);
+    }
+
+    .nav-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        align-items: center;
+        justify-content: center; /* Tengah-tengah secara vertikal */
+        text-align: center;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .nav-items {
+        padding: var(--padding-m);
+        text-align: center;
+    }
+
+    .nav-links {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        font-size: var(--font-size-l);
+        display: absolute;
+        z-index: 100;
+    }
+
+    /* Tombol hamburger (untuk membuka navbar) */
+    .menu-icon {
+        font-size: var(--font-size-xl);
+        font-weight: bold;
+        color: rgb(0, 0, 0);
+        background: none;
+        border: none;
+        cursor: pointer;
+        position: fixed;
+        top: var(--margin-xl);
+        left: var(--margin-s);
+        z-index: 1500; /* Pastikan berada di atas navbar */
+        display: block;
+        width: 2.5rem;
+        height: 2.5rem;
+        text-align: center;
+        line-height: 2.5rem; /* Agar ikon berada di tengah */
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    }
+
+    .menu-icon.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .close-icon {
+        font-size: var(--font-size-xxl);
+        color: rgb(0, 0, 0);
+        background: none;
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        top: var(--margin-s);
+        right: var(--margin-s);
+        display: block;
+        width: 4rem;
+        height: 4rem;
+        text-align: center;
+        line-height: 5rem;
+    }
+
+    #mobile-navbar.active {
+        left: 0;
+    }
+
+    #menu-open-button.hidden {
+        display: none;
+    }
+
+    /* ---- Submenu Container ---- */
+    .submenu-container {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    /* ---- Struktur Link (Bisa Diklik) ---- */
+    .structure-link {
+        text-decoration: none;
+        color: white;
+        padding: var(--padding-s);
+        font-size: var(--font-size-l);
+        display: block;
+        width: 100%;
+    }
+
+    /* ---- Tanda Panah (Bisa Diklik) ---- */
+    .arrow {
+        font-size: var(--font-size-xxl);  /* 🔥 Ukuran lebih responsif */
+        padding: var(--padding-s);
+        cursor: pointer;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);  /* 🔥 Animasi lebih smooth */
+        position: absolute;
+        right: 8rem;  /* 🔥 Diganti agar responsif */
+        top: 50%;
+        transform: translateY(-50%) rotate(0deg);
+    }
+
+    /* ---- Saat Submenu Terbuka, Tanda Panah Berputar ke Bawah ---- */
+    .arrow.down {
+        transform: translateY(-50%) rotate(180deg);
+    }
+
+    /* ---- Submenu (Tersembunyi Awal) ---- */
+    .submenu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        border-radius: var(--padding-s);
+        
+        /* 🔥 Animasi lebih smooth */
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transform: translateY(-var(--margin-s));
+        transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+        
+        list-style: none; /* 🔥 Menghilangkan bullet points */
+        padding-left: 0;
+    }
+
+    /* ---- Saat Submenu Dibuka ---- */
+    .submenu.open {
+        max-height: var(--font-size-xxl) * 3; /* 🔥 Tinggi submenu otomatis */
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* ---- Submenu Item ---- */
+    .submenu li {
+        padding: var(--padding-s) 0;
+    }
+
+    .submenu li a {
+        text-decoration: none;
+        color: black;
+        font-size: var(--font-size-m);
+        display: block;
+        padding: var(--padding-s);
+    }
+
+    /* ---- Hover Efek ---- */
+    .submenu li a:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: var(--padding-s);
+    }
+
+    /*Home Section*/
+    .home-section {
+        max-height: 60vh; /* Mengatur tinggi minimum untuk memastikan background terlihat */
+        padding: var(--padding-xl) var(--padding-s); /* Menggunakan padding untuk mobile */
+        text-align: center; /* Memusatkan teks */
+        background-size: cover; /* Memastikan background menutupi seluruh area */
+        background-position: center; /* Memusatkan posisi background */
+        background-repeat: no-repeat; /* Menghindari pengulangan gambar */
+    }
+
+    .home-content {
+        display: flex; /* Menggunakan flexbox untuk tata letak horizontal */
+        flex-direction: row; /* Mengatur arah menjadi baris */
+        justify-content: center; /* Memusatkan konten secara horizontal */
+        align-items: center; /* Memusatkan konten secara vertikal */
+        width: 100%; /* Memastikan konten menggunakan lebar penuh */
+        gap: 9rem;
+    }
+
+    .home-section img {
+        max-width: 50%; /* Mengatur ukuran maksimum gambar menjadi 40% dari lebar kontainer */
+        height: auto; /* Memastikan proporsi gambar tetap terjaga */
+        margin: var(--margin-s); /* Menambahkan margin di sekitar gambar */
+    }
+
+    /* Jika ada teks atau deskripsi di Home Section */
+    .home-section h1, .home-section p {
+        font-size: var(--font-size-l); /* Mengatur ukuran font untuk judul dan paragraf */
+        margin: var(--margin-m) 0; /* Menambahkan margin vertikal */
+    }
+
+    /*About*/
+    .about-section {
+        padding: var(--padding-m);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .about-content {
+        width: 100%;
+        max-width: 37.5rem;
+    }
+
+    .about-content h2 {
+        font-size: var(--font-size-xxl);
+        margin-bottom: var(--margin-m);
+        margin-top: var(--margin-xxl);
+        align-items: center;
+    }
+
+    .about-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--margin-l);
+    }
+
+    .about-image-container {
+        position: relative;
+        width: 100%;
+        max-width: 30rem;
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Tambahkan ini */
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+        left: 1.5rem;
+    }
+
+    .about-image-container .image-border {
+        display: none;
+    }
+
+    .about-image {
+        width: 100%;
+        height: auto;
+        border-radius: 0.625rem;
+        display: block;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+    }
+
+    .about-text {
+        text-align: center;
+        margin-top: var(--margin-m);
+    }
+
+    .about-text p {
+        font-size: var(--font-size-m);
+        line-height: 1.6;
+        padding: 0 var(--padding-s);
+        text-align: justify;
+        margin-bottom: var(--margin-m);
+    }
+
+    .vision-mission {
+        margin-top: var(--margin-l);
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .vision, .mission {
+        padding: var(--padding-s);
+        text-align: center;
+        margin: var(--margin-m) auto;
+        width: 90%;
+        position: relative;
+        border-radius: 0.5rem;
+    }
+
+    .vision h3, .mission h3 {
+        font-size: var(--font-size-xl);
+        margin-bottom: var(--margin-s);
+        background-color: transparent;
+        display: block;
+        padding: var(--padding-s);
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+    }
+
+    .mission ul {
+        padding-left: var(--padding-s);
+        text-align: left;
+        display: inline-block;
+    }
+
+    .mission li {
+        font-size: var(--font-size-m);
+        margin-bottom: var(--margin-s);
+    }
+
+
+    /*Structure Section*/
+    .structure-section {
+        padding: 20px 0 0; /* Kurangi padding atas & bawah */
+        max-width: 100%; /* Pastikan tidak melebar */
+    }
+
+    .structure-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    /* Pembina OSIS di paling atas */
+    .pembina {
+        width: 90%;
+        text-align: center;
+        word-wrap: break-word;
+        overflow: hidden;
+    }
+
+    .pembina img {
+        width: 50%;
+        max-width: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    /* Struktur Inti - Memanjang ke samping */
+    .second-tier {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .second-tier .card, .third-tier .card {
+        width: 45%;
+        max-width: 180px;
+        min-height: 220px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        overflow: hidden;
+        padding: 15px;
+        box-sizing: border-box;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .second-tier .card img, .third-tier .card img {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .second-tier .card:hover, .third-tier .card:hover {
+        transform: scale(1.05);
+    }
+
+    /* Menteri - 4 atas dan 4 bawah */
+    .third-tier {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .third-tier .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .third-tier .card {
+        cursor: pointer;
+    }
+
+    /* Gallery Section */
+    .gallery-section {
+        padding: var(--padding-l) var(--padding-s); /* Padding lebih kecil */
+    }
+
+    .slider-container {
+        width: 100%; /* Pastikan slider menggunakan lebar penuh */
+    }
+
+    /*Event Section*/
+    .event-bg {
+        padding: var(--padding-l) var(--padding-s); /* Padding lebih kecil */
+    }
+
+    .event-container {
+        flex-direction: column; /* Ubah menjadi kolom pada layar kecil */
+    }
+
+    /*Sugestion*/
+    .container-sugestion {
+        width: 100%;
+        margin: var(--margin-m) auto;
+    }
+
+    /*Footer*/
+    .footer-container {
+        flex-direction: column;
+        padding: var(--padding-s) 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .submenu-container .submenu, .arrow {
+        display: none !important;
+    }
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divisi Politik - Organisasi OSIS</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fc;
+        }
+        
+        /* Navbar */
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        /* Tab Navigation */
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            background-color: #fff;
+            padding: 10px 0;
+            border-top: 4px solid #003366;
+        }
+
+        .tab-button {
+            padding: 15px 30px;
+            margin: 0 10px;
+            background-color: #f3f3f3;
+            border: 2px solid #003366;
+            cursor: pointer;
+            text-align: center;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .tab-button:hover, .tab-button.active {
+            background-color: #003366;
+            color: white;
+            font-weight: bold;
+            border-color: #003366;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: #fff;
+            border: 2px solid #003366;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Section title */
+        .content-header {
+            font-size: 28px;
+            color: #003366;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #003366;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Divisi Politik - OSIS MPK SMAN 2 Jember</h1>
+    </header>
+
+    <!-- Tabs navigation -->
+    <div class="tabs-container">
+        <div class="tab-button active" onclick="openTab(event, 'overview')">Overview</div>
+        <div class="tab-button" onclick="openTab(event, 'projects')">Proyek</div>
+        <div class="tab-button" onclick="openTab(event, 'team')">Tim</div>
+    </div>
+
+    <!-- Tab Contents -->
+    <div id="overview" class="tab-content active">
+        <div class="content-header">Overview Divisi Politik</div>
+        <p>
+            Divisi Politik bertugas untuk mengelola dan mengkoordinasi kegiatan politik di lingkungan organisasi ini.
+            Kami terlibat dalam berbagai acara, diskusi, dan pengambilan keputusan strategis yang akan berdampak pada
+            kebijakan organisasi.
+        </p>
+    </div>
+
+    <div id="projects" class="tab-content">
+        <div class="content-header">Proyek Divisi Politik</div>
+        <p>
+            Saat ini, kami sedang mengerjakan beberapa proyek besar yang berfokus pada edukasi politik dan peningkatan
+            partisipasi politik di kalangan anggota.
+        </p>
+    </div>
+
+    <div id="team" class="tab-content">
+        <div class="content-header">Tim Divisi Politik</div>
+        <p>
+            Tim divisi politik terdiri dari individu-individu yang memiliki latar belakang dalam politik, hukum, dan
+            strategi. Kami bekerja sama untuk mencapai tujuan bersama.
+        </p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Divisi Politik - OSIS MPK SMAN 2 Jember
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function openTab(event, tabName) {
+            var i, tabcontent, tabbuttons;
+            
+            // Hide all tab contents
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+
+            // Remove 'active' class from all tab buttons
+            tabbuttons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].classList.remove("active");
+            }
+
+            // Show the current tab content
+            document.getElementById(tabName).classList.add("active");
+            event.currentTarget.classList.add("active");
+        }
+    </script>
+
+</body>
+</html>
